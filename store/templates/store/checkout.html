@@ -1,0 +1,64 @@
+{% extends "store/base.html" %}
+{% block content %}
+
+<br>
+<br>
+
+<style type = "text/css">
+.centerdv
+{
+  width:45%;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+.imgscale
+{
+  max-width: 64px;
+  max-height: 64px;
+}
+</style>
+
+<div class="container centerdv">
+  <h3>Total Price :<br><span class="label label-success">
+    {{ total }}</span></h3>
+    <hr>
+    <div class="well">
+      <form method = "post" action="{% url 'completeorder' %}" class="centerdv">
+        {% csrf_token %}
+        <h4> Billing Information </h4>
+        <hr>
+        <b>Name :</b>
+        <input type="text" name="name" class="form-control">
+        <br>
+        <b>Contact No. :</b>
+        <input type="text" name="phone" class="form-control">
+        <br>
+        <b>Address :</b>
+        <input type="text" name="address" class="form-control">
+        <br>
+        <h4> Payment Information </h4>
+        <hr>
+        <b> Payment type : </b>
+        <br>
+
+        <input type="radio" name="payment" value="Cash On Delivery">
+        Cash on Delivery
+        <br>
+        <input type="radio" name="payment" value="Paypal">
+        Paypal
+        <br>
+        <input type="radio" name="payment" value="credit card">
+        Credit Card
+        <br>
+        <br>
+        <b>Paypal Email/CC number [if applicable]<b>
+          <br>
+          <br>
+          <input type="text" name="payment_data" class="form-control">
+          <br>
+
+          <input type="submit" value="Complete Order" class="btn btn-success">
+          </form>
+          </div>
+{% endblock %}

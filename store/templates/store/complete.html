@@ -1,0 +1,26 @@
+{% extends "store/base.html" %}
+{% block content %}
+
+<br>
+<br>
+
+<style type = "text/css">
+.centerdv
+{
+  width:45%;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+.imgscale
+{
+  max-width: 64px;
+  max-height: 64px;
+}
+</style>
+<div claas="jumbotron centerdv"
+<h2> Order Complete</h2>
+<a href="{% url 'home' %}" class="btn btn-success">Return home</a>
+</div>
+
+{% endblock %}

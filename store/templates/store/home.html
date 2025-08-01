@@ -1,0 +1,30 @@
+{% extends 'store/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<style>
+.btn-outline-dark.custom-btn {
+
+	border-color: #CDB3FC;
+}
+</style>
+  <div class="text-center">
+
+        <img src="{% static 'store/Dokan.png' %}" class="img-fluid" width="800" height="1500">
+
+
+            <p><b>V-shop here</b> is your one stop shopping solution.A few clicks is all it takes</p>
+        <a role="button" class="btn btn-outline-dark custom-btn" href="{% url 'storem' %}">Start Shopping</a>
+
+
+
+
+
+
+
+        </div>
+
+
+{% endblock %}

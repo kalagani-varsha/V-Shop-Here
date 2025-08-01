@@ -1,0 +1,80 @@
+{% extends "store/base.html" %}
+{% block content %}
+
+<br>
+
+<style type = "text/css">
+.centerdv
+{
+  width:80%;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+}
+.imgscale
+{
+  max-width: 64px;
+  max-height: 64px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 10px;
+  text-align: auto;
+  border-bottom: 1px solid #E6D9FE;
+}
+
+tr:hover {background-color:#E6D9FE }
+</style>
+<br>
+<br>
+<div class="container well centerdv">
+
+    <h3>Total Price :<br><span class="label label-success">
+      {{ total }}</span></h3>
+<hr>
+<table>
+
+      {% for item in cart_item %}
+
+<tr>
+          <td><img class="media object imgscale" src="{{ item.image.url }}"></td>
+
+
+
+            <td><h4 class="media heading"> {{ item.name }} </h4></td>
+
+            <td><span class="label label-primary"><b>Price : {{ item.price }} </b></span><td>
+
+
+            <td><form method="post" action="{% url 'removefromcart' %}">
+              {% csrf_token %}
+              <input type="submit" value="Remove" class="btn btn-warning pull-right">
+              <input type="hidden" name="obj_id" value= {{ item.id }}>
+              </form></td>
+
+
+              {% endfor %}
+              </table>
+              <br>
+
+              <a href="{% url 'checkout' %}" class="btn btn-success">Checkout</a>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
